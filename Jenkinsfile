@@ -12,7 +12,7 @@ node {
    }
  stage('test') {
      maven() {
-      def myTestContainer = docker.image('suresh10/newrepvinv')
+      def myTestContainer = docker.image('node:4.6')
       myTestContainer.pull()
        myTestContainer.inside {
                  sh 'git clone https://github.com/vinaysimhayv/selenium-docker.git'
