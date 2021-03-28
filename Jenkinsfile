@@ -7,8 +7,7 @@ node {
    }
    stage('install') {
      maven() {
-       sh 'mvn install'
-       sh 'npm test'
+       sh 'sudo mvn -f selenium-docker/pom.xml install'
      }
    }
  stage('test') {
@@ -16,7 +15,7 @@ node {
       def myTestContainer = docker.image('suresh10/newrepvinv')
       myTestContainer.pull()
        myTestContainer.inside {
-       sh 'mvn test'
+       sh 'sudo mvn -f selenium-docker/pom.xml test'
      }
   
      }
