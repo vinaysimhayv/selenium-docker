@@ -2,8 +2,8 @@ node {
    def commit_id
    stage('Clone') {
    	 checkout scm
-     sh 'sudo apt-get update'
-     sh 'sudo apt-get install git-all'
+     sh 'apt-get update'
+     sh 'apt-get install git-all'
      sh 'git status'
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commit_id = readFile('.git/commit-id').trim()
