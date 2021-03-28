@@ -2,7 +2,7 @@ node {
    def commit_id
    stage('Clone') {
    	 checkout scm
-   	 SH 'sudo -s'
+   	 sh 'sudo -s'
      sh 'apt-get update'
      sh 'apt-get install git-all'
      sh 'git status'
