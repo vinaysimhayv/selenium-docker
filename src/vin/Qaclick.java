@@ -5,6 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+//import org.testng.annotations.Test;
+
+@org.testng.annotations.Test
 public class Qaclick {
 	
 	
@@ -16,6 +20,7 @@ public class Qaclick {
 		System.out.println(path); 
 		System.setProperty("webdriver.chrome.driver",path+"//resources//chromedriver_mac");
 
+		//System.setProperty("webdriver.chrome.driver", "\\resources\\chromedriver_mac");
 		driver = new ChromeDriver();
 		Assert.assertTrue(true);
 		
@@ -32,10 +37,8 @@ public class Qaclick {
 	@Test(priority=3)
 	void login() throws InterruptedException {
 		Thread.sleep(2000);
-
 		driver.findElement(By.xpath("//a[contains(@href,'sign_in')]")).click();
 		System.out.println("Clicked on sign in");
-
 		Thread.sleep(2000);
 		driver.findElement(By.id("user_email")).sendKeys("vinaysv22@gmail.com");
 		driver.findElement(By.id("user_password")).sendKeys("thekings");
@@ -50,6 +53,7 @@ public class Qaclick {
 	
 	@Test(priority=4)
 	void captureText() {
+		System.out.println("Capturing text");
 		driver.findElement(By.xpath("//a[@class='link-below-button']")).click();
 		String text = driver.findElement(By.xpath("//div[@class='main-hero']/h1")).getText();
 		System.out.println(text);
