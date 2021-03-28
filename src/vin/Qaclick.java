@@ -18,7 +18,7 @@ public class Qaclick {
 		System.out.println("In Setup method");
 		String path = System.getProperty("user.dir");
 		System.out.println(path); 
-		System.setProperty("webdriver.chrome.driver",path+"//resources//chromedriver_mac");
+		System.setProperty("webdriver.chrome.driver",path+"//resources//chromedriver_linux");
 
 		//System.setProperty("webdriver.chrome.driver", "\\resources\\chromedriver_mac");
 		driver = new ChromeDriver();
