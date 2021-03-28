@@ -12,7 +12,7 @@ node {
      }
    }
  stage('test') {
-     Maven() {
+     maven() {
        sh 'mvn test'
      }
    }
