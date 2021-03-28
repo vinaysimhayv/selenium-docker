@@ -12,7 +12,7 @@ node {
      }
    }
  stage('test') {
-     mvnOnJenkins() {
+     Maven() {
        sh 'mvn test'
      }
    }
