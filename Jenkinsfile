@@ -23,7 +23,7 @@ node {
    }
    stage('publish') {
      docker.withRegistry('https://index.docker.io/v1/', 'dockerhub') {
-       def app = docker.build("suresh10/docker-nodejs-demo:${commit_id}", '.').push()
+       def app = docker.build("suresh10/sample:999", '.').push()
      }
    }
 }
