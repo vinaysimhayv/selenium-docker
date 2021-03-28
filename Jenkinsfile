@@ -6,7 +6,7 @@ node {
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('install') {
-     mvnOnJenkins() {
+     maven() {
        sh 'mvn install'
        sh 'npm test'
      }
