@@ -1,16 +1,12 @@
 node {
    def commit_id
    stage('Clone') {
-   	 checkout scm
-   	 sh 'sudo -s'
-     sh 'apt-get update'
-     sh 'apt-get install git-all'
-     sh 'git status'
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commit_id = readFile('.git/commit-id').trim()
    }
    stage('install') {
      maven() {
+   
        sh 'sudo mvn -f selenium-docker/pom.xml install'
      }
    }
@@ -19,6 +15,8 @@ node {
       def myTestContainer = docker.image('suresh10/newrepvinv')
       myTestContainer.pull()
        myTestContainer.inside {
+                 sh 'git clone https://github.com/vinaysimhayv/selenium-docker.git'
+       
        sh 'sudo mvn -f selenium-docker/pom.xml test'
      }
   
