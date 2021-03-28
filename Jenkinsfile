@@ -1,6 +1,7 @@
 node {
    def commit_id
    stage('Clone') {
+   	 scm checkout
      sh sudo 'apt-get install git-all'
      sh 'git status'
      sh "git rev-parse --short HEAD > .git/commit-id"                        
