@@ -13,7 +13,12 @@ node {
    }
  stage('test') {
      maven() {
+      def myTestContainer = docker.image('suresh10/newrepvinv')
+      myTestContainer.pull()
+       myTestContainer.inside {
        sh 'mvn test'
+     }
+  
      }
    }
    stage('publish') {
