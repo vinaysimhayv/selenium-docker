@@ -44,7 +44,7 @@ public class Qaclick {
 	
 	@Test(priority=2)
 	void launch() throws InterruptedException {
-		System.out.println("Setup Method");
+		System.out.println("Launch Method");
 		/*
 		System.out.println("Launching qaclick academy website");
 		driver.get("http://www.qaclickacademy.com/");
@@ -75,7 +75,7 @@ public class Qaclick {
 	
 	@Test(priority=4)
 	void captureText() {
-		System.out.println("Login Method");
+		System.out.println("capture text Method");
 
 		/*
 		System.out.println("Capturing text");
