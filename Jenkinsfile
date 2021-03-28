@@ -3,7 +3,6 @@ node {
    stage('Clone') {
      sh sudo 'apt install git-all'
      sh 'git status'
-     Sh 'git clone https://github.com/vinaysimhayv/selenium-docker.git'
      sh "git rev-parse --short HEAD > .git/commit-id"                        
      commit_id = readFile('.git/commit-id').trim()
    }
