@@ -1,8 +1,13 @@
 package vin;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,15 +17,22 @@ import org.testng.annotations.Test;
 public class Qaclick {
 	
 	
-	public WebDriver driver;
+	RemoteWebDriver driver;
+	
+	
+	
+	//public WebDriver driver;
 	@Test(priority=1)
-	void setup() {
+	void setup() throws MalformedURLException {
 		System.out.println("In Setup method");
 		String path = System.getProperty("user.dir");
 		System.out.println(path); 
-		System.setProperty("webdriver.chrome.driver",path+"//resources//chromedriver_linux");
+		System.setProperty("webdriver.chrome.driver",path+"//resources//chromedriver_mac");
 
-		//System.setProperty("webdriver.chrome.driver", "\\resources\\chromedriver_mac");
+		DesiredCapabilities cap = DesiredCapabilities.chrome();
+		URL u = new URL("http://172.17.0.2:8000/wd/hub");
+		 driver = new RemoteWebDriver(u, cap);
+
 		driver = new ChromeDriver();
 		Assert.assertTrue(true);
 		
